@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int ft_strncmp(const char *s1, const char *s2, size_t n);
+void* calloc(size_t nmemb, size_t size);
 
 int main(void)
 {
-	printf("%d",  ft_strncmp("Moloch", "Moloch", 5));
+	void *baal = calloc(5,4);
+	free(baal);
 }
