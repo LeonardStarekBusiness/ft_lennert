@@ -3,15 +3,14 @@ MISSING FUNCTIONS:
 
 PART 1:
 
-memcmp
-memchr
-strnstr
+	memcmp
+	memchr
+	strnstr
 
 PART 2:
 
-strtrim
 split
-itoa
+	itoa
 strmapi
 striteri
 putnbr_fd

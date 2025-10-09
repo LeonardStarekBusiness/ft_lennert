@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-char *ft_strjoin(char const *s1, char const *s2);
+char *ft_strtrim(char const *s1, char const *set);
 
 int main(void)
 {
-	char *lol = ft_strjoin("", "lo");
+	char *lol = ft_strtrim("DER TODE NAHT", " E");
 	printf("%s\n", lol);
 	return 0;
 }
