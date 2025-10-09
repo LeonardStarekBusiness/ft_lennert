@@ -1,5 +1,21 @@
 MISSING FUNCTIONS:
 
+
+PART 1:
+
 memcmp
 memchr
 strnstr
+
+PART 2:
+
+strjoin
+strtrim
+split
+itoa
+strmapi
+striteri
+putchar_fd
+putstr_fd
+putendl_fd
+putnbr_fd
