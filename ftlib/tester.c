@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-void ft_putstr_fd(char *s, int fd);
+char *ft_strjoin(char const *s1, char const *s2);
 
 int main(void)
 {
-	int i = open("baal.txt", O_CREAT | O_WRONLY, 0644);
-	ft_putstr_fd("here", i);
+	char *lol = ft_strjoin("", "lo");
+	printf("%s\n", lol);
 	return 0;
 }
