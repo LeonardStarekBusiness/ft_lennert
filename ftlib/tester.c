@@ -1,16 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
-char *ft_substr(char const *s, unsigned int start,
- size_t len);
+void ft_putstr_fd(char *s, int fd);
 
-int main(int ac, char **av)
+int main(void)
 {
-	char *baal;
-	if (ac == 4)
-		baal = ft_substr(av[1], atoi(av[2]), atoi(av[3]));
-	else
-		baal = "enter da shit";
-	printf("%s\n", baal);
-	free(baal);
+	int i = open("baal.txt", O_CREAT | O_WRONLY, 0644);
+	ft_putstr_fd("here", i);
+	return 0;
 }
