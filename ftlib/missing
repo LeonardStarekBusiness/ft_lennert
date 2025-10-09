@@ -9,8 +9,6 @@ PART 1:
 
 PART 2:
 
-split
 	itoa
-strmapi
-striteri
+split
 putnbr_fd

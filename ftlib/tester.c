@@ -2,11 +2,19 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-char *ft_strtrim(char const *s1, char const *set);
+void ft_striteri(char *s, void (*f)(unsigned int,
+ char*));
+
+void add(unsigned int i, char *c)
+{
+	*c += (char)i;
+}
 
 int main(void)
 {
-	char *lol = ft_strtrim("DER TODE NAHT", " E");
+	char lol[] = "MOLOCH";
+	printf("%s\n", lol);
+	ft_striteri(lol, add);
 	printf("%s\n", lol);
 	return 0;
 }
