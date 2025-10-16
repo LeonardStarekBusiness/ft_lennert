@@ -12,8 +12,8 @@ int main(int ac, char **av)
 		popo = ft_split("enter input", ' ');
 	while (*popo != NULL)
 	{
-		printf("-->%s<--\n", *popo);
+		printf("[%s]\n", *popo);
 		popo++;
 	}
-	printf("-->%s<--\n", *popo);
+	printf("[%s]\n", *popo);
 }

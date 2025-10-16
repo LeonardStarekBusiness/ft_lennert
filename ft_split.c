@@ -47,7 +47,6 @@ static int	len_until(char const *str, char del)
 	return (i);
 }
 
-//25 zeilen !!!!!!!!111!1!!!!11!!111!
 //erstes Malloch optimieren (für den karre zeiger zeiger)
 void	advance(char **karre, char const *s, char c, int *pos)
 {
@@ -58,14 +57,36 @@ void	advance(char **karre, char const *s, char c, int *pos)
         pos[1] = 0;
 }
 
+int	count_words(char const *s, char c)
+{
+	int	wc;
+	int	expect_word;
+
+	expect_word = 1;
+	wc = 0;
+	while (*s != 0)
+	{
+		if (*s == c)
+			expect_word = 1;
+		else if (expect_word)
+		{
+			expect_word = 0;
+			wc++;
+		}
+		s++;
+	}
+	return (wc + 1);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**rstr;
-	int	pos[2];
+	int	*pos;
 
-	pos[0] = 0;
-	pos[1] = 0;
-	rstr = callocl(len_until(s, '\0') + 1, sizeof(char *));
+	pos = callocl(2, sizeof(int));
+	rstr = callocl(count_words(s, c), sizeof(char *));
+	if (rstr == NULL)
+		return (NULL);
 	rstr[pos[0]] = callocl(len_until(s, c) + 1, 1);
 	while (*s != 0)
 	{
