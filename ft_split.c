@@ -47,8 +47,7 @@ static int	len_until(char const *str, char del)
 	return (i);
 }
 
-//erstes Malloch optimieren (für den karre zeiger zeiger)
-void	advance(char **karre, char const *s, char c, int *pos)
+static void	advance(char **karre, char const *s, char c, int *pos)
 {
 	karre[pos[0]][pos[1]] = '\0';
         if (karre[pos[0]][0] != 0)
@@ -57,7 +56,7 @@ void	advance(char **karre, char const *s, char c, int *pos)
         pos[1] = 0;
 }
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	int	wc;
 	int	expect_word;
