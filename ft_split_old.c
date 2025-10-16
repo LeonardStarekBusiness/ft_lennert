@@ -49,38 +49,44 @@ static int	len_until(char const *str, char del)
 
 //25 zeilen !!!!!!!!111!1!!!!11!!111!
 //erstes Malloch optimieren (für den karre zeiger zeiger)
-void	advance(char **karre, char const *s, char c, int *pos)
+void	advance(char **karre, char const *s, char c, int *x, int *y)
 {
-	karre[pos[0]][pos[1]] = '\0';
-        if (karre[pos[0]][0] != 0)
-                pos[0] = pos[0] + 1;
-        karre[pos[0]] = callocl(len_until(s, c) + 1, 1);
-        pos[1] = 0;
+	karre[*x][*y] = '\0';
+        if (karre[*x][0] != 0)
+                *x = *x + 1;
+        karre[*x] = callocl(len_until(s, c) + 1, 1);
+        *y = 0;
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**rstr;
-	int	pos[2];
+	int	word;
+	int	letter;
 
-	pos[0] = 0;
-	pos[1] = 0;
+	word = 0;
+	letter = 0;
 	rstr = callocl(len_until(s, '\0') + 1, sizeof(char *));
-	rstr[pos[0]] = callocl(len_until(s, c) + 1, 1);
+	rstr[word] = callocl(len_until(s, c) + 1, 1);
 	while (*s != 0)
 	{
-		while (*s == c)
+		if (*s == c)
 		{
-			s++;
-			advance(rstr, s, c, pos);
+			while (*s == c)
+				s++;
+			if (*s == '\0')
+				break ;
+			if (rstr[word][0] != 0)
+				advance(rstr, s, c, &word, &letter);
 		}
-		if (*s == '\0')
-			break ;
-		rstr[pos[0]][pos[1]] = *s;
-		pos[1]++;
-		s++;
+		else
+		{
+			rstr[word][letter] = *s;
+			letter++;
+			s++;
+		}
 	}
-	advance(rstr, s, c, pos);
-	rstr[pos[0]] = NULL;
+	advance(rstr, s, c, &word, &letter);
+	rstr[word] = NULL;
 	return (rstr);
 }
